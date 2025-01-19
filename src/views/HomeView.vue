@@ -5,8 +5,8 @@
       <ItemCard v-for="(item, index) in pokemonStore.pokemonList" :key="index" v-bind="item"
         @selected="onCardSelected(item.id)" />
     </div>
-    <!-- <FloatButton :total="totalTeam" @click="onFloatButtonClick" />
-    <div class="p-3" v-if="isPaginationLoading">
+    <FloatButton :total="pokemonStore.pokemonTeam" @click="onFloatButtonClick" />
+    <!-- <div class="p-3" v-if="isPaginationLoading">
       <PikachuLoading />
     </div> -->
   </section>
@@ -32,7 +32,9 @@ const onCardSelected = (id: string) => {
   pokemonStore.selectPokemon(id)
 }
 
+const onFloatButtonClick = () => {
 
+}
 
 </script>
 

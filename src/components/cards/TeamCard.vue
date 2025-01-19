@@ -8,7 +8,7 @@
             <DeleteButton @click="store.removePokemonTeam(id)" />
           </div>
           <h1 class="text-white text-2xl p-2 uppercase text-center">{{ name }}</h1>
-          <img class="h-[300px] w-[300px] z-50  "
+          <img class="h-[300px] w-[300px] z-50 animation-pokemon "
             :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`"
             alt="raichu" />
           <div class="flex flex-row gap-2 p-2">
@@ -67,4 +67,8 @@ const store = usePokemonStore()
 
 
 </script>
-<style scoped></style>
+<style scoped>
+.animation-pokemon {
+  @apply transition ease-in-out hover:scale-[1.05] duration-300
+}
+</style>
