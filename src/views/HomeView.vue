@@ -29,7 +29,6 @@ onMounted(async () => {
   //   window.addEventListener('scroll', handleScroll)
 })
 
-
 const onCardSelected = (id: string) => {
   pokemonStore.selectPokemon(id)
 }
