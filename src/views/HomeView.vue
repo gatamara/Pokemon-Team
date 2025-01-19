@@ -5,7 +5,7 @@
       <ItemCard v-for="(item, index) in pokemonStore.pokemonList" :key="index" v-bind="item"
         @selected="onCardSelected(item.id)" />
     </div>
-    <FloatButton :total="pokemonStore.pokemonTeam" @click="onFloatButtonClick" />
+    <FloatButton :total="pokemonStore.pokemonTeam.length" @click="onFloatButtonClick" />
     <!-- <div class="p-3" v-if="isPaginationLoading">
       <PikachuLoading />
     </div> -->
@@ -13,8 +13,10 @@
 </template>
 
 <script setup lang="ts">
+import FloatButton from '@/components/buttons/FloatButton.vue';
 import ItemCard from '@/components/cards/ItemCard.vue';
 import SectionTitle from '@/components/titles/SectionTitle.vue';
+import router from '@/router';
 
 import { usePokemonStore } from '@/stores/pokemon.store';
 import { onMounted } from 'vue';
@@ -33,8 +35,9 @@ const onCardSelected = (id: string) => {
 }
 
 const onFloatButtonClick = () => {
-
+  router.push({ name: 'team' })
 }
+
 
 </script>
 
