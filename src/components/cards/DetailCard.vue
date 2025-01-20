@@ -3,11 +3,17 @@
     <div class="w-fit bg-black/80 rounded-[10px] p-6">
       <div class="grid grid-cols-1 md:grid-cols-2 ">
         <div class=" flex flex-col items-center justify-center relative">
-          <div class="font-bold text-[250px] absolute text-slate-500/50 z-0 ">{{ id }}</div>
+          <div class="font-bold text-[250px] absolute text-slate-500/30 z-0 ">{{ id }}</div>
           <h1 class="text-white text-2xl p-2 uppercase text-center">{{ props.name }}</h1>
-          <img class="h-[300px] w-[300px]  z-50 animation-pokemon "
-            :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.id}.png`"
-            alt="raichu" />
+          <div class=" z-50 flex ">
+            <img class="h-[300px] w-[300px]  animation-pokemon "
+              :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.id}.png`"
+              alt="raichu" />
+            <img class="h-[300px] w-[300px]  animation-pokemon "
+              :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${props.id}.png`"
+              alt="raichu" />
+          </div>
+
           <div class="flex flex-row gap-2 p-2">
             <span v-if="props.typeA"
               :style="{ backgroundColor: getBgColor(props.typeA), color: getFontColor(props.typeA) }"

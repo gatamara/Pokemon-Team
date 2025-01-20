@@ -35,7 +35,7 @@ const onClick = () => {
 </script>
 <style scoped>
 .card-border {
-  @apply rounded-[10px] shadow-[0_5px_10px_] w-[300px] h-[400px] flex flex-col items-center p-4 relative m-5 cursor-pointer
+  @apply rounded-[10px] shadow-[0_5px_10px_] w-[300px] h-[350px] flex flex-col items-center p-4 relative m-5 cursor-pointer
 }
 
 .bg-circle {
@@ -47,6 +47,6 @@ const onClick = () => {
 }
 
 .card-transition {
-  @apply transition ease-in-out hover:scale-[1.03] hover:bg-black/30 duration-300;
+  @apply transition ease-in-out hover:scale-[1.03] hover:bg-black/60 duration-300;
 }
 </style>
