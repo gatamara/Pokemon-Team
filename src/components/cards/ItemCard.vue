@@ -1,6 +1,5 @@
 <template>
-  <!--selected bg-black/70-->
-  <div :class="{ 'bg-black/70': isSelected, 'card-transition': !isSelected }" class="card-border " @click="onClick">
+  <div :class="{ 'bg-black/70': isSelected, 'card-transition': !isSelected }" class="card-border" @click="onClick">
     <img v-if="isSelected" class="absolute left-2 top-2" src="@/assets/pokeball-icon.svg" alt="" width="50"
       height="50" />
     <img v-else class="absolute left-2 top-2" src="@/assets/pokeball-icon-gray.svg" alt="" width="50" height="50" />
@@ -13,6 +12,7 @@
     <h1 class="name-pokemon">{{ name }}</h1>
   </div>
 </template>
+
 <script lang="ts" setup>
 interface Props {
   id: string
@@ -24,14 +24,13 @@ interface Emits {
   selected: [id: string]
 }
 
-const { id, name, image, isSelected } = defineProps<Props>()
+const { id, name, image, isSelected } = defineProps<Props>();
 
-const emits = defineEmits<Emits>()
+const emits = defineEmits<Emits>();
 
 const onClick = () => {
-  emits('selected', id)
-}
-
+  emits('selected', id);
+};
 </script>
 <style scoped>
 .card-border {

@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex justify-center items-center rounded-md w-[340px] h-[80px] my-4 p-2 bg-green-500 hover:bg-green-600   cursor-pointer z-50"
-    @click="onButtonClick">
+    @click="onLoadMore">
     <h2 class="text-lg text-white">Cargar mas Pokemon</h2>
     <PokeballLoading />
 
@@ -17,7 +17,7 @@ interface Emits {
 
 const emits = defineEmits<Emits>()
 
-const onButtonClick = () => {
+const onLoadMore = () => {
   emits('click')
 }
 </script>

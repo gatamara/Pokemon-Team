@@ -1,18 +1,15 @@
 <template>
   <section class="relative" ref="scrollComponent">
-    <SectionTitle text="Elige 6 pokemon para tu equipo" />
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4   xl:grid-cols-5 p-2 sm:p-3 md:p-5">
-      <ItemCard v-for="(item, index) in pokemonStore.pokemonList" :key="index" v-bind="item"
-        @selected="onCardSelected(item.id)" />
+    <SectionTitle text="Elige 6 Pokémon para tu equipo" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-2 sm:p-3 md:p-5">
+      <ItemCard v-for="(item, index) in combinedPokemonList" :key="index" :id="item.id" :name="item.name"
+        :image="item.image" :isSelected="pokemonStore.pokemonTeam.some(pokemon => pokemon.id === item.id)"
+        @selected="onCardSelected" />
     </div>
     <FloatButton :total="pokemonStore.pokemonTeam.length" @click="onFloatButtonClick" />
-    <!-- <div class="p-3" v-if="isPaginationLoading">
-      <PikachuLoading />
-    </div> -->
     <div class="w-full flex justify-center">
-      <LoadButton />
+      <LoadButton :disabled="!pokemonStore.hasNextPage || pokemonStore.isFetchingNextPage" @click="onLoadMore" />
     </div>
-
   </section>
 </template>
 
@@ -23,27 +20,27 @@ import ItemCard from '@/components/cards/ItemCard.vue';
 import SectionTitle from '@/components/titles/SectionTitle.vue';
 import router from '@/router';
 
+import { computed } from 'vue';
 import { usePokemonStore } from '@/stores/pokemon.store';
-import { onMounted } from 'vue';
 
-const pokemonStore = usePokemonStore()
+const pokemonStore = usePokemonStore();
 
 
-onMounted(async () => {
-  await pokemonStore.loadPokemons()
-  //   window.addEventListener('scroll', handleScroll)
-})
-
+const combinedPokemonList = computed(() => {
+  return pokemonStore.pokemonList?.pages.flat() || [];
+});
 
 const onCardSelected = (id: string) => {
-  pokemonStore.selectPokemon(id)
-}
+  pokemonStore.selectPokemon(id);
+};
 
 const onFloatButtonClick = () => {
-  router.push({ name: 'team' })
-}
+  router.push({ name: 'team' });
+};
 
-
+const onLoadMore = async () => {
+  await pokemonStore.fetchNextPage();
+};
 </script>
 
 <style scoped></style>
