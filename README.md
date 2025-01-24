@@ -1,46 +1,53 @@
-# pokemon-team
+# Pokémon Team
 
-This template should help get you started developing with Vue 3 in Vite.
+¡Bienvenido a Pokémon Team! Este proyecto es una aplicación desarrollada con **Vue.js 3** y **Vite**, que incluye características como paginación con **TanStack Query** y manejo de estado global con **Pinia**.
 
-## Recommended IDE Setup
+## 🛠 Tecnologías utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue.js 3**: Framework progresivo de JavaScript.
+- **Vite**: Herramienta de desarrollo rápida y moderna.
+- **TanStack Query**: Librería para manejo de datos asíncronos y paginación.
+- **Pinia**: Manejo de estado global fácil de usar y moderno.
+- **TypeScript**: Para un desarrollo tipado más robusto.
+- **Vitest**: Para pruebas unitarias.
+- **ESLint**: Linter para mantener un código limpio y consistente.
 
-## Type Support for `.vue` Imports in TS
+---
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## 🚀 Características principales
 
-## Customize configuration
+- **Paginación avanzada**: Implementada con **TanStack Query** para manejar de forma eficiente grandes volúmenes de datos.
+- **Estado global**: Utiliza **Pinia** para un manejo centralizado y reactivo de los datos.
+- **Tipado con TypeScript**: Mejora la productividad y previene errores en el código.
+- **Desempeño óptimo**: Gracias a **Vite** como bundler.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 📦 Configuración del proyecto
 
-```sh
-npm install
-```
+Sigue estos pasos para configurar y ejecutar el proyecto localmente:
 
-### Compile and Hot-Reload for Development
+### 1. Clona el repositorio
 
-```sh
+git clone https://github.com/tu-usuario/pokemon-team.git
+
+### 2. Compila y recarga en modo desarrollo
+
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
+### 3. Verifica el tipado y compila para producción
 
-```sh
 npm run build
-```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Analiza el código con ESLint
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
 npm run lint
-```
+
 # Pokemon-Team
+
+## 📸 Capturas de pantalla
+
+**Vista principal de la aplicación**
+![Home](public/screenshots/home-sreenshot.png)
+
+![Team](public/screenshots/pokemon-screenshot.png)

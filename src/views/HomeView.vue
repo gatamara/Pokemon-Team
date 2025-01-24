@@ -1,7 +1,7 @@
 <template>
   <section class="relative" ref="scrollComponent">
     <SectionTitle text="Elige 6 Pokémon para tu equipo" />
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-2 sm:p-3 md:p-5">
+    <div class="flex flex-wrap justify-between p-3">
       <ItemCard v-for="(item, index) in combinedPokemonList" :key="index" :id="item.id" :name="item.name"
         :image="item.image" :isSelected="pokemonStore.pokemonTeam.some(pokemon => pokemon.id === item.id)"
         @selected="onCardSelected" />

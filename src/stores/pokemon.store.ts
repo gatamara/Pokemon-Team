@@ -24,9 +24,10 @@ export const usePokemonStore = defineStore('pokemon', () => {
   } = useInfiniteQuery({
     queryKey: ['pokemonList'],
     queryFn: async ({ pageParam = 0 }) => {
-      const limit = 25
+      const limit = pageParam === 6 ? 1 : 25
       const maxPokemon = 151
-      const offset = pageParam * limit
+      const offset = pageParam * 25
+      console.log({ limit, offset, pageParam })
 
       if (offset >= maxPokemon) {
         return []
@@ -41,9 +42,7 @@ export const usePokemonStore = defineStore('pokemon', () => {
     getNextPageParam: (lastPage, allPages) => {
       const maxPokemon = 151
       const totalLoaded = allPages.flat().length
-
       if (totalLoaded >= maxPokemon) return undefined
-
       return allPages.length
     },
     initialPageParam: 0,
